@@ -49,6 +49,7 @@ logging.level = "INFO"
 # Necessary to see build output from the actual compilation
 build-verbosity = 1
 
+build = ["cp38-*", "cp39-*", "cp310-*", "cp311-*", "cp312-*", "cp313-*"]
 archs = ["auto64"]
 skip = "*-musllinux* pp*"
 
@@ -61,7 +62,7 @@ test-requires = "pytest"
 MACOSX_DEPLOYMENT_TARGET = "10.14"
 
 [tool.cibuildwheel.linux]
-before-all = "yum install mylib"
+before-all = "yum install -y libatomic"
 
 
 [tool.pytest.ini_options]
