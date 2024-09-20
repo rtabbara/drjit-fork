@@ -31,13 +31,9 @@ from .ast import syntax, hint
 from .interop import wrap
 import warnings as _warnings
 
-def get_cmake_dir():
-    from os import path
-    file_dir = path.abspath(path.dirname(__file__))
-    cmake_path = path.join(file_dir, "share", "cmake", "drjit")
-    if not path.exists(cmake_path):
-        raise ImportError("Cannot find Dr.Jit CMake directory")
-    return cmake_path
+def cmake_dir():
+    import os
+    return os.path.join(os.path.abspath(os.path.dirname(__file__)), "cmake")
 
 # -------------------------------------------------------------------
 #  Predicates and comparison operations for floating point arrays
